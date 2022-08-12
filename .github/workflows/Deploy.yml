@@ -3,7 +3,7 @@ name: Snowflake_Main_Deployments
 on:
   push:
     branches:
-      - DEV
+      - main
     paths:
       - 'dbscripts/deploy/MasterChangeLog.xml'
   workflow_dispatch:
