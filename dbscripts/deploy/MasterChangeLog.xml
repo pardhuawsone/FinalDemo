@@ -11,4 +11,5 @@
 	<include file="dbscripts/Tables/Table1.sql"/>
 	<include file="dbscripts/Tables/Table2.sql"/>
 	<include file="dbscripts/Tables/Table3.sql"/>
+	<include file="dbscripts/Tables/Table4.sql"/>
 </databaseChangeLog>
