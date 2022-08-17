@@ -6,3 +6,6 @@ create table hackschema.Emp3 (
     address varchar(50),
     city varchar(30)
 )
+
+--changeset vasu:2
+ALter table hackschema.Emp3 add column state varchar;
