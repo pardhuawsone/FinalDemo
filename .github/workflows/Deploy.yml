@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'dbscripts/deploy/MasterChangeLog.xml'
+      - 'dbscripts/**'
   workflow_dispatch:
 jobs:	
   Main_Deploy:
