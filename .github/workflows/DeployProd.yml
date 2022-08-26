@@ -1,4 +1,4 @@
-name: Snowflake_Main_Deployments
+name: Snowflake_Prod_Deployments
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'dbscripts/**'
   workflow_dispatch:
 jobs:	
-  Main_Deploy:
+  Prod_Deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
