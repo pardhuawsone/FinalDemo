@@ -9,10 +9,4 @@
 		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
 		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 	<include file="dbscripts/Tables/Table1.sql"/>
-	<include file="dbscripts/Tables/Table2.sql"/>
-	<include file="dbscripts/Tables/Table3.sql"/>
-	<include file="dbscripts/Tables/Table4.sql"/>
-	<include file="dbscripts/Tables/Table5.sql"/>
-	<include file="dbscripts/Tables/Table6.sql"/>
-	<include file="dbscripts/Tables/Table7.sql"/>
 </databaseChangeLog>
