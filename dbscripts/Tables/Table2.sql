@@ -26,3 +26,21 @@ create table demo.Emp5 (
     address varchar(50),
     city varchar(30)
 )
+--changeset saradhi.makkena:6 context:dev
+create table demo.Emp6 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+--changeset saradhi.makkena:7
+create table demo.Emp7 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+--changeset saradhi.makkena:8 context:all
+create table demo.Emp8 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
