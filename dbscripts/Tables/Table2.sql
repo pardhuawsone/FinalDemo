@@ -44,3 +44,37 @@ create table demo.Emp8 (
     address varchar(50),
     city varchar(30)
 )
+
+--changeset saradhi.makkena:t1 context:"dev"
+create table demo.devtable (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+
+--changeset saradhi.makkena:t5
+create table demo.envtable2 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+--changeset saradhi.makkena:t2 context:"test"
+create table demo.testtable (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+
+--changeset saradhi.makkena:t4
+create table demo.envtable1 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
+
+--changeset saradhi.makkena:t3 context:"prod"
+create table demo.prodtable (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
