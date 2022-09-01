@@ -79,7 +79,7 @@ create table demo.prodtable (
     city varchar(30)
 )
 
---changeset saradhi.makkena:t6 context:"dev and prod"
+--changeset saradhi.makkena:t6 context:dev and prod
 create table demo.devprodtable (
     name varchar(50),
     address varchar(50),
