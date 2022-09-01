@@ -85,3 +85,10 @@ create table demo.devprodtable (
     address varchar(50),
     city varchar(30)
 )
+
+--changeset saradhi.makkena:t7
+create table demo.envtable3 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
