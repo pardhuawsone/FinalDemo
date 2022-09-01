@@ -7,16 +7,23 @@ on:
     paths:
       - 'dbscripts/**'
   workflow_dispatch:
+#env:
+  #name: dev
 jobs:	
   Dev_Deploy:
     runs-on: ubuntu-latest
+    environment: 
+      name: dev
     steps:
-    - uses: actions/checkout@v2
-    - name: Run 'Liquibase status' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml status
-    - name:  Run 'Liquibase update' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml update
+      - name: "Say Hello Saradhi it's ThusDay"
+        run: echo "This is a ${{environment.name}} Sandbox!"
+    #steps:
+    #- uses: actions/checkout@v2
+    #- name: Run 'Liquibase status' in a docker container
+      #uses: docker://liquibase/liquibase:latest
+      #with:
+        #args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml status
+    #- name:  Run 'Liquibase update' in a docker container
+      #uses: docker://liquibase/liquibase:latest
+      #with:
+        #args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml update
