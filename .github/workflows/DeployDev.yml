@@ -16,7 +16,7 @@ jobs:
       name: dev
     steps:
       - name: "Say Hello Saradhi it's ThusDay"
-        run: echo "This is a ${{environment.name}} Sandbox!"
+        run: echo "This is a ${{env.name}} Sandbox!"
     #steps:
     #- uses: actions/checkout@v2
     #- name: Run 'Liquibase status' in a docker container
