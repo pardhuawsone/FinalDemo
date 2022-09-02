@@ -92,3 +92,11 @@ create table demo.envtable3 (
     address varchar(50),
     city varchar(30)
 )
+
+--changeset cheemava:ns1
+create schema demo_new_schema;
+create table demo_new_schema.table1 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+);
