@@ -86,12 +86,12 @@ create table demo.devprodtable (
     city varchar(30)
 )
 
---changeset saradhi.makkena:t7
-create table demo.envtable3 (
-    name varchar(50),
-    address varchar(50),
-    city varchar(30)
-)
+#--changeset saradhi.makkena:t7
+#create table demo.envtable3 (
+#    name varchar(50),
+#    address varchar(50),
+#    city varchar(30)
+#)
 
 #--changeset cheemava:ns1
 #create schema demo_new_schema;
