@@ -99,4 +99,10 @@ create table demo_new_schema.table1 (
     name varchar(50),
     address varchar(50),
     city varchar(30)
-);
+)
+--changeset saradhi.makkena:t8
+create table demo.${EnvVar}_TB (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
