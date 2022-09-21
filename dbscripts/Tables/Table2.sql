@@ -8,7 +8,7 @@ create table demo.Empabc (
 )
 
 --changeset saradhi.makkena:2
-create table demo.${EnvVar}VT (
+create table demo.cdna_boomi_write_${EnvVar}role (
     name varchar(50),
     address varchar(50),
     city varchar(30)
