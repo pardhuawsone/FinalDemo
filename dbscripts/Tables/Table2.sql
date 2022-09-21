@@ -8,7 +8,7 @@ create table demo.Empabc (
 )
 
 --changeset saradhi.makkena:2
-create table demo.${EnvVar}_TB (
+create table demo.${EnvVar}VT (
     name varchar(50),
     address varchar(50),
     city varchar(30)
