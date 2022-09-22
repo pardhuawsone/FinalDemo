@@ -19,4 +19,4 @@ jobs:
     - name:  Run 'Liquibase update' in a docker container
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml --contexts="dev" update
+        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml --contexts="dev" updatesql
