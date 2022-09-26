@@ -1,2 +1,4 @@
---changeset saradhi.makkena:a1
-create role saradhi_tester1;
+--liquibase formatted sql
+
+--changeset saradhi.makkena:a12
+create role saradhi_tester2;
