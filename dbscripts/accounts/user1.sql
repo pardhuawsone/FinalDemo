@@ -1,1 +1,2 @@
-create user user1 password='sar123'
+--changeset saradhi.makkena:w1
+create role saradhi_tester1;
