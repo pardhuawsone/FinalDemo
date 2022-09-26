@@ -12,6 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+#Calling Accounts ChangeLog
+    - name: Run 'Liquibase status' in a docker container
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url=${{ secrets.DEVDB_ACC_URL }} --username=${{ secrets.DEVDB_ACC_USERNAME }} --password=${{ secrets.DEVDB_ACC_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_ACC_SCHEMA }} --changeLogFile=/dbscripts/deploy/AccountsChangeLog.xml status
+    - name:  Run 'Liquibase update' in a docker container
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url=${{ secrets.DEVDB_ACC_URL }} --username=${{ secrets.DEVDB_ACC_USERNAME }} --password=${{ secrets.DEVDB_ACC_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_ACC_SCHEMA }} --changeLogFile=/dbscripts/deploy/AccountsChangeLog.xml --contexts="dev" updatesql -DEnvVar=""
+
+#Calling Database ChangeLog
     - name: Run 'Liquibase status' in a docker container
       uses: docker://liquibase/liquibase:latest
       with:
