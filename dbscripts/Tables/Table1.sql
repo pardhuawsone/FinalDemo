@@ -6,3 +6,10 @@ create table demo.Emp1 (
     address varchar(50),
     city varchar(30)
 )
+
+--changeset saradhi.makkena:db2
+create table demo.Emp2 (
+    name varchar(50),
+    address varchar(50),
+    city varchar(30)
+)
