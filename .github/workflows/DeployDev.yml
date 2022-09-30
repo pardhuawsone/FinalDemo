@@ -1,6 +1,11 @@
 name: Snowflake_Dev_Deployments
 
 on:
+  push:
+    #branches:
+      #- dev
+    #paths:
+      #- 'dbscripts/usrs/**'
   
   workflow_dispatch:
 jobs:	
