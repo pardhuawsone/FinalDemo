@@ -1,5 +1,5 @@
 This is file one
-no change at all
+this is feature 1 change
 about new feature2
 this is dev2
 Keep both
