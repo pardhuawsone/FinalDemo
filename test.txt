@@ -1,5 +1,5 @@
 This is file one
-new 1change 
-about new feature1
+new 2change 
+about new feature2
 i am dev one
 Keep both
