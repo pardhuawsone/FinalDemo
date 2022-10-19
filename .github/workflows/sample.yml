@@ -1,6 +1,14 @@
 name:  Shell Commands
 
-on:  [push]
+on:
+  push:
+    paths:
+     - '**'
+     - '!.github/**'
+     - '.github/workflows/sample.yml'
+     - '!**.md'           # do not run on doc change
+     
+  workflow_dispatch:
 
 jobs:  
   runs-shell-commands:
@@ -11,4 +19,5 @@ jobs:
       - name: multi commands
         run: |
           git -v
-          node -v
+          npm -v
+          echo It is done
