@@ -3,12 +3,11 @@ name:  Shell Commands
 on:  [push]
 
 jobs:  
-  runs-shell-commands
+  runs-shell-commands:
     runs-on:  ubuntu-latest
     steps:
-	  - name: echo a string
-	    run:  echo "This is a string"
-	  - name: multi commands
-	    run:  |
-		  git -v
-		  echo HeLlo
+      - name: echo a string
+        run:  echo "This is a string"
+      - name: multi commands
+	run:  |
+	  git -v
