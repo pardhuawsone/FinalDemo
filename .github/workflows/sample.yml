@@ -9,5 +9,6 @@ jobs:
       - name: echo a string
         run:  echo "This is a string"
       - name: multi commands
-	run:  |
-	  git -v
+        run: |
+          git -v
+          node -v
