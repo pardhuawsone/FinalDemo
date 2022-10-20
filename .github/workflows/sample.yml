@@ -11,23 +11,13 @@ on:
   workflow_dispatch:
 
 jobs:  
-  runs-shell-types:
-    runs-on:  ubuntu-latest
+  runs-github-actions:
+    runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run:  echo "This is a string"
-      - name: Python Commands
-        run: |
-          import platform
-          print
-          (platform.processor())
-        shell: python
-  runs-windows-commands:
-    runs-on:  windows-latest
-    needs: ["runs-shell-types"]
-    steps:
-      - name: Folder PowerShell 
-        run: Get-Location
-      - name: Directory
-        run: pwd
-        shell:  bash
+      - name: simple JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: "MS DHONI"
+      - name: Log greet time
+        run: echo "${{ steps.greet.outputs.time }}"
