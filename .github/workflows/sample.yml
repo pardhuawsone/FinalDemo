@@ -1,4 +1,4 @@
-name:  Shell Commands
+name:  Shell types
 
 on:
   push:
@@ -11,13 +11,23 @@ on:
   workflow_dispatch:
 
 jobs:  
-  runs-shell-commands:
+  runs-shell-types:
     runs-on:  ubuntu-latest
     steps:
       - name: echo a string
         run:  echo "This is a string"
-      - name: multi commands
+      - name: Python Commands
         run: |
-          git -v
-          npm -v
-          echo It is done
+          import platform
+          print
+          (platform.processor())
+        shell: python
+  runs-windows-commands:
+    runs-on:  windows-latest
+    needs: ["runs-shell-types"]
+    steps:
+      - name: Folder PowerShell 
+        run: Get-Location
+      - name: Directory
+        run: pwd
+        shell:  bash
