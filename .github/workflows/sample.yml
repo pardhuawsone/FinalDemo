@@ -19,5 +19,19 @@ jobs:
         uses: actions/hello-world-javascript-action@v1.1
         with:
           who-to-greet: "MS DHONI"
+      - name: list files
+        run: |
+          ls -a
+          pwd
+      - name: Checkout Action
+        uses: actions/checkout@v1
+      - name: List files after checkout
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          ls -la
+          pwd
       - name: Log greet time
         run: echo "${{ steps.greet.outputs.time }}"
