@@ -19,7 +19,7 @@ jobs:
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
         with:
-          who-to-greet: "MS DHONI"
+          who-to-greet: "MS FAV Cricketer is DHONI"
       - name: list files
         run: |
           ls -a
