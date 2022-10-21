@@ -1,0 +1,38 @@
+name:  Shell types
+
+on:
+  push:
+    paths:
+     - '**'
+     - '!.github/**'
+     - '.github/workflows/sample.yml'
+     - '!**.md'           # do not run on doc change
+  pull_request:
+    types: [opened, reopened, closed, assigned]
+  workflow_dispatch:
+
+jobs:  
+  runs-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: "MS DHONI"
+      - name: list files and hidden files
+        run: |
+          ls -a
+          pwd
+      - name: Checkout Action
+        uses: actions/checkout@v1
+      - name: List files after checkout
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          ls -la
+          pwd
+      - name: Log greet time
+        run: echo "${{ steps.greet.outputs.time }}"
