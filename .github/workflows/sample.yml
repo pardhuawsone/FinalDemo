@@ -1,14 +1,16 @@
 name:  Shell types
 
 on:
-  push:
-    paths:
-     - '**'
-     - '!.github/**'
-     - '.github/workflows/sample.yml'
-     - '!**.md'           # do not run on doc change
-  pull_request:
-    types: [opened, reopened, closed, assigned]
+  schedule:
+    - cron: "0/2 * * * *"
+  #push:
+    #paths:
+     #- '**'
+     #- '!.github/**'
+     #- '.github/workflows/sample.yml'
+     #- '!**.md'           # do not run on doc change
+  #pull_request:
+    #types: [opened, reopened, closed, assigned]
   workflow_dispatch:
 
 jobs:  
