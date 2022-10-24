@@ -1,40 +1,44 @@
-name:  Shell types
+name:  Env Vars
 
 on:
-  schedule:
-    - cron: "0/2 * * * *"
-  #push:
-    #paths:
-     #- '**'
-     #- '!.github/**'
-     #- '.github/workflows/sample.yml'
-     #- '!**.md'           # do not run on doc change
-  #pull_request:
-    #types: [opened, reopened, closed, assigned]
+  push:
+    paths:
+     - '**'
+     - '!.github/**'
+     - '.github/workflows/sample.yml'
+     - '!**.md'           # do not run on doc change
+     
   workflow_dispatch:
-
+env:
+  WF_ENV: Available to all jobs
 jobs:  
-  runs-github-actions:
+  Log-Env:
+    runs-on: ubuntu-latest
+    env:
+      JOBS_ENV: Available to all steps in this job
+    steps:
+      - name: Job Env vars
+        env:
+          STEPS_ENV: Available to this step only
+          run: |
+            echo "WF_ENV: ${WF_ENV}"
+            echo "JOBS_ENV: ${JOBS_ENV}"
+            echo "STEPS_ENV: ${STEPS_ENV}"
+  log-default-env:
     runs-on: ubuntu-latest
     steps:
-      - name: simple JS action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1.1
-        with:
-          who-to-greet: "MS DHONI"
-      - name: list files
+      - name: Default Env Vars
         run: |
-          ls -a
-          pwd
-      - name: Checkout Action
-        uses: actions/checkout@v1
-      - name: List files after checkout
-        run: |
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
-          ls -la
-          pwd
-      - name: Log greet time
-        run: echo "${{ steps.greet.outputs.time }}"
+          echo "HOME:${HOME}"
+          echo "GITHUB_WORKFLOW:${GITHUB_WORKFLOW}"
+          echo "GITHUB_ACTION:${GITHUB_ACTION}"
+          echo "GITHUB_ACTIONS:${GITHUB_ACTIONS}"
+          echo "GITHUB_ACTOR:${GITHUB_ACTOR}"
+          echo "GITHUB_REPOSITORY:${GITHUB_REPOSITORY}"
+          echo "GITHUB_EVENT_NAME:${GITHUB_EVENT_NAME}"
+          echo "GITHUB_SHA:${GITHUB_SHA}"
+          echo "GITHUB_REF:${GITHUB_REF}"
+          echo "WF_ENV:${WF_ENV}"
+          echo "JOBS_ENV:${JOBS_ENV}"
+          echo "STEPS_ENV:${STEPS_ENV}"
+          
