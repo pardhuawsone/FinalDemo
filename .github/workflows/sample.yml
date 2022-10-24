@@ -29,11 +29,13 @@ jobs:
           git branch --set-upstream-to=origin/sample1
           git pull
           ls -la
+          echo $RANDOM > ./random.txt
+          echo $RANDOM >> ./random.txt    
+          ls -la
           git add -A 
           git commit -m  "Random File"
           git push
-          echo $RANDOM > ./random.txt
-          echo $RANDOM >> ./random.txt
+
       - name: Create issue using RestApi
         run: |
           curl --request POST \
