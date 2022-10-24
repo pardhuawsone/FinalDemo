@@ -20,7 +20,7 @@ jobs:
       - name: Job Env vars
         env:
           STEPS_ENV: Available to this step only
-          run: |
+        run: |
             echo "WF_ENV: ${WF_ENV}"
             echo "JOBS_ENV: ${JOBS_ENV}"
             echo "STEPS_ENV: ${STEPS_ENV}"
