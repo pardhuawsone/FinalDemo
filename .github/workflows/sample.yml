@@ -24,6 +24,11 @@ jobs:
             echo "WF_ENV: ${WF_ENV}"
             echo "JOBS_ENV: ${JOBS_ENV}"
             echo "STEPS_ENV: ${STEPS_ENV}"
+      - name: Log Env 2
+        run: |
+            echo "WF_ENV: ${WF_ENV}"
+            echo "JOBS_ENV: ${JOBS_ENV}"
+            echo "STEPS_ENV: ${STEPS_ENV}"
   log-default-env:
     runs-on: ubuntu-latest
     steps:
