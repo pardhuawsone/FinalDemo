@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt File
-        run:  gpg --quiet --batch --yes --decrypt --passphrase="$mypin" --output ./my_secret.json ./sample.json.gpg
+        run:  gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output ./my_secret.json ./sample.json.gpg
         env:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       - name: Cat the File
