@@ -12,25 +12,29 @@ on:
 env:
   WF_ENV: Available to all jobs
 jobs:
-  decrypt:
+  functions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Decrypt File
-        run:  gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output ./my_secret.json ./sample.json.gpg
-        env:
-          PASSPHRASE: ${{ secrets.mypin }}
-      - name: Cat the File
-        run: cat ./my_secret.json
-  Log-Env:
+      - name: Dump
+        run:  |
+          echo ${{ contains( 'hello', 'll' ) }}
+          echo ${{ startswith( 'hello', 'he' ) }}
+          echo ${{ endswith( 'hello', 'lo' ) }}
+          echo ${{ format( 'Hello {0} {1} {2}', 'World', '!', '!' ) }}
+
+  One:
     runs-on: ubuntu-latest
-    env:
-      JOBS_ENV: Available to all steps in this job
     steps:
-      - name: Job Env vars
-        env:
-          STEPS_ENV: Available to this step only
-        run: |
-            echo "WF_ENV: ${WF_ENV}"
-            echo "JOBS_ENV: ${JOBS_ENV}"
-            echo "STEPS_ENV: ${STEPS_ENV}"
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
