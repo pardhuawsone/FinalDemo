@@ -6,3 +6,4 @@ create table demo.Emp1 (
     address varchar(50),
     city varchar(30)
 )
+--Added this line
