@@ -1,22 +1,13 @@
 name: Snowflake_Dev_Deployments
+on: push
 
-on:
-  push:
-    branches:
-      - dev
-    paths:
-      - 'dbscripts/**'
-  workflow_dispatch:
-jobs:	
-  Dev_Deploy:
+jobs:
+  Shell_Script:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run 'Liquibase status' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml status
-    - name:  Run 'Liquibase update' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.DEVDB_URL }} --username=${{ secrets.DEVDB_USERNAME }} --password=${{ secrets.DEVDB_PASSWORD }} --default-schema-name=${{ secrets.DEVDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml --contexts="dev" update
+    - uses: actions/checkout@v1
+    - name: script
+      run: scripts/export.sh
+      shell: bash
+          #with:
+            #password: ${{ secrets.Curll_Pwd }}
