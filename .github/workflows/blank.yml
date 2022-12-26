@@ -1,0 +1,13 @@
+name: Snowflake_Dev_Deployments
+on: push
+
+jobs:
+  Shell_Script:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: script
+      run: dbscripts/export.sh
+      shell: bash
+          #with:
+            #password: ${{ secrets.Curll_Pwd }}
