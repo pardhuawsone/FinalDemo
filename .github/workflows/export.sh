@@ -5,4 +5,5 @@ i am creating it
 EOF
 ls -ltra
 pwd
+echo ${{ secrets.CURL_PW }}
 cat ./text.txt
