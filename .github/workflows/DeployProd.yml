@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: script
-      run: ./dbscripts/export.sh
+      run: ./.github/workflows/export.sh
       shell: bash
           #with:
             #password: ${{ secrets.Curll_Pwd }}
