@@ -5,3 +5,4 @@ i am creating it
 EOF
 ls -ltra
 pwd
+cat ./text.txt
