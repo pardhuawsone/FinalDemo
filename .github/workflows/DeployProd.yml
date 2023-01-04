@@ -1,22 +1,13 @@
 name: Snowflake_Prod_Deployments
+on: push
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'dbscripts/**'
-  workflow_dispatch:
-jobs:	
-  Prod_Deploy:
+jobs:
+  Shell_Script:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run 'Liquibase status' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.PRODDB_URL }} --username=${{ secrets.PRODDB_USERNAME }} --password=${{ secrets.PRODDB_PASSWORD }} --default-schema-name=${{ secrets.PRODDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml status
-    - name:  Run 'Liquibase update' in a docker container
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.PRODDB_URL }} --username=${{ secrets.PRODDB_USERNAME }} --password=${{ secrets.PRODDB_PASSWORD }} --default-schema-name=${{ secrets.PRODDB_SCHEMA }} --changeLogFile=/dbscripts/deploy/MasterChangeLog.xml --contexts="prod" update
+    - uses: actions/checkout@v1
+    - name: script
+      run: dbscripts/export.sh
+      shell: bash
+          #with:
+            #password: ${{ secrets.Curll_Pwd }}
